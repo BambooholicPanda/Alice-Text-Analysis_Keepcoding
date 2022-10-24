@@ -11,11 +11,11 @@ previas a remove_suffixes.
 
 import csv
 
-alice_read = open("alice.txt", "r", encoding="utf-8-sig")
+alice_read = open("inputs/alice.txt", "r", encoding="utf-8-sig")
 alice_text = alice_read.read()
 alice_read.close()
 
-english_read = open("english.txt", "r", encoding="utf-8-sig")
+english_read = open("inputs/english.txt", "r", encoding="utf-8-sig")
 english_stopwords = english_read.read()
 english_read.close()
 
@@ -224,7 +224,7 @@ dict_list = []
 for key, value in alice_text_wcount.items():
     dict_list.append({"Word": key, "Count": value, "Length": len(key)})
 
-with open('alicia_tabla.csv', 'w') as csvfile:
+with open('data_analysis/alice_table.csv', 'w') as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=column_names)
     writer.writeheader()
     writer.writerows(dict_list)
