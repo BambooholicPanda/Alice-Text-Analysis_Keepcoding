@@ -120,7 +120,8 @@ def display_histogram(dict):
     for key, value in dict.items():
         percentage = round(value * max_blocks_percentage)
         print(key + " " * (max_space_word + 1 - len(key)) 
-        + full_block * percentage + empty_block * (max_blocks_percentage - percentage))
+        + full_block * percentage + empty_block * (max_blocks_percentage - percentage)
+        + " (" + str(round(value * 100, 2)) + "%)")
 
 # Llamada a todas las funciones para cumplir nuestro objetivo:
 
@@ -159,6 +160,10 @@ def display_sort_percentages(dict):
         print(f"{key}:\t\t\t{dict[key] / len(dict)}%\t\t\t {dict[key]} / {len(dict)}")
 order_by_percentage = sort_percentages(alice_text_wcount)
 #display_sort_percentages(order_by_percentage)
+
+# Histograma sorteado
+#alice_text_wprob = word_probability(order_by_percentage)
+#alice_text_histogram = display_histogram(alice_text_wprob)
 
 '''
 El siguiente código funciona para extraer el diccionario a un archivo CSV y poder
